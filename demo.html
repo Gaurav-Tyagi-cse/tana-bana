@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <style>
+    /* Basic Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    .top-bar {
+      text-align: right;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      display: block;
+    }
+
+    .nav-menu {
+      display: flex;
+    }
+
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0 10px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 10px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: #444;
+      border-radius: 5px;
+    }
+
+    .account a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .toggle-button {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .toggle-button {
+        display: block;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="top-bar">
+      <span class="contact">+1 973-538-3707</span>
+    </div>
+    <div class="navbar">
+      <div class="logo"><img src="logo-bg-remove.png" width="100px" alt="Logo"></div>
+      <nav id="nav-menu" class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Design Categories</a></li>
+          <li><a href="#">Trade Shows</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="account">
+        <a href="#">My Account</a>
+        <a href="#" class="cart">Cart (0)</a>
+      </div>
+      <button class="toggle-button" id="toggle-button">☰</button>
+    </div>
+  </header>
+
+  <script>
+    // Toggle Button Functionality
+    const toggleButton = document.getElementById("toggle-button");
+    const navMenu = document.getElementById("nav-menu");
+
+    toggleButton.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
